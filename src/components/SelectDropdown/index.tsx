@@ -36,14 +36,15 @@ const SelectDropdown: React.FC<ISelectDropdownProps> = ({
 
   const onSelectItem = useCallback((target: ComplexityItem) => {
     let updated: Array<ComplexityItem> = [];
+
     const { id, value } = target;
-    const exists = selectedItems.includes(target);
+    const exists = selectedItems.find((i) => i.id === id);
     const allIsInList = selectedItems.find((i) => i.id === 'all');
 
     if (id === 'all') {
       setSelectedItems([]);
 
-      if (selectedItems.includes(target)) {
+      if (selectedItems.find((i) => i.id === id)) {
         onChange(target, 'clear');
         return setSelectedItems([]);
       }
@@ -77,7 +78,7 @@ const SelectDropdown: React.FC<ISelectDropdownProps> = ({
           <List>
             {items.map((item) => {
               const { id, value } = item;
-              const selected = selectedItems.includes(item);
+              const selected = selectedItems.find((o) => o.id === id);
 
               return (
                 <Item key={id}>
