@@ -13,7 +13,7 @@ import Select from '@/components/Select';
 import Checkbox from '@/components/Checkbox';
 import SelectDropdown from '@/components/SelectDropdown';
 
-import { complexityList, temporalList } from './options';
+import options from './options';
 import { Label, Wrapper, Container, ErrorContainer } from './styles';
 
 export default function GeneratePassword() {
@@ -331,8 +331,8 @@ export default function GeneratePassword() {
         {generate && (
           <Wrapper>
             <SelectDropdown
-              items={complexityList}
               onChange={onChangeComplexity}
+              items={options.complexityList}
               placeholder="Select complexity types..."
               borderColorIndicator={onChangeBorderColor(randomPassword !== '', complexityError !== '')}
             />
@@ -368,8 +368,8 @@ export default function GeneratePassword() {
         {canStore && (
           <Wrapper margin="2rem 0 0">
             <Select
-              items={temporalList}
               onChange={onChangeTemporal}
+              items={options.temporalList}
               placeholder="Select period..."
               borderColorIndicator={onChangeBorderColor(!!selectedTemporal, storeError !== '')}
             />
