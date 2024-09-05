@@ -16,7 +16,7 @@ import SelectDropdown from '@/components/SelectDropdown';
 import { complexityList, temporalList } from './options';
 import { Label, Wrapper, Container, ErrorContainer } from './styles';
 
-const GeneratePassword = () => {
+export default function GeneratePassword() {
   const [canStore, setCanStore] = useState(false);
   const [generate, setGenerate] = useState(false);
   const [status, setStatus] = useState<Status>('none');
@@ -425,5 +425,3 @@ const GeneratePassword = () => {
     </Container>
   );
 };
-
-export default GeneratePassword;

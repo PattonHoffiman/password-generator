@@ -17,8 +17,6 @@ const generatePassword = async ({
   complexity
 }: IGeneratePasswordParams): Promise<IGeneratePasswordReturn> => {
   try {
-    console.log(complexity.toLocaleString());
-
     const res = await callAPI(
       {
         method: 'GET',

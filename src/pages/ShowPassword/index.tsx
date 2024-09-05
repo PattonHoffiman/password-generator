@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useCallback, useTransition } from 'react';
+import { useState, useEffect, useCallback, useTransition } from 'react';
 import { Oval } from 'react-loader-spinner';
 import { useParams, useRouter } from 'next/navigation';
 import cryptoJS from 'crypto-js';
@@ -8,7 +8,7 @@ import Button from '@/components/Button';
 import verifyPassword from '@/api/password/verify';
 import { InfoContainer, InfoRow, Container, Content, Label } from './styles';
 
-const ShowPassword = () => {
+export default function ShowPassword() {
   const router = useRouter();
   const params = useParams<{ id: string }>();
 
@@ -135,5 +135,3 @@ const ShowPassword = () => {
     </Container>
   );
 };
-
-export default memo(ShowPassword);
