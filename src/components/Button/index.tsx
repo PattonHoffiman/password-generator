@@ -1,9 +1,9 @@
-import { memo, InputHTMLAttributes } from 'react';
+import { memo, ButtonHTMLAttributes } from 'react';
 import { Oval } from 'react-loader-spinner';
 
 import { Container } from './styles';
 
-interface ButtonProps extends InputHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   isLoading?: boolean;
 
@@ -12,7 +12,7 @@ interface ButtonProps extends InputHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: React.FC<ButtonProps> = ({ text, color, backgroundColor, isLoading = false, ...rest }) => (
-  <Container type='button' color={color} backgroundColor={backgroundColor} {...rest}>
+  <Container type="button" color={color} backgroundColor={backgroundColor} {...rest}>
     {isLoading ? (
       <Oval
       width="1rem"
