@@ -330,7 +330,7 @@ const GeneratePassword = () => {
 
         {generate && (
           <Wrapper>
-            <SelectDropdown<ComplexityItem>
+            <SelectDropdown
               items={complexityList}
               onChange={onChangeComplexity}
               placeholder="Select complexity types..."
@@ -367,7 +367,7 @@ const GeneratePassword = () => {
 
         {canStore && (
           <Wrapper margin="2rem 0 0">
-            <Select<TemporalItem>
+            <Select
               items={temporalList}
               onChange={onChangeTemporal}
               placeholder="Select period..."

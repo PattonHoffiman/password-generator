@@ -1,30 +1,25 @@
-import { memo, useMemo, useState, useCallback, PropsWithoutRef } from 'react';
+import { memo, useMemo, useState, useCallback } from 'react';
 import { ChevronDown, ChevronUp, PlusSquare, XSquare } from 'react-feather';
 
 import { List, Item, Header, Container, ListContainer, ActionButton } from './styles';
 
-interface ISelectDropdownProps<T> {
-  items: Array<T>;
+interface ISelectDropdownProps {
+  items: Array<ComplexityItem>;
 
   placeholder?: string;
   borderColorIndicator: string;
 
-  onChange: (value: T, action?: 'all' | 'clear') => void;
+  onChange: (value: ComplexityItem, action?: 'all' | 'clear') => void;
 }
 
-interface IGenericItem {
-  id: string;
-  value: string;
-}
-
-const SelectDropdown = <T,>({
+const SelectDropdown: React.FC<ISelectDropdownProps> = ({
   items,
   onChange,
   borderColorIndicator,
   placeholder = 'Select...'
-}: PropsWithoutRef<ISelectDropdownProps<T>>) => {
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItems, setSelectedItems] = useState<Array<T>>([]);
+  const [selectedItems, setSelectedItems] = useState<Array<ComplexityItem>>([]);
   const icon = useMemo(() => isOpen ? <ChevronUp /> : <ChevronDown />, [isOpen]);
 
   const selectedValues = useMemo(() => {
@@ -39,9 +34,9 @@ const SelectDropdown = <T,>({
     return undefined;
   }, [selectedItems]);
 
-  const onSelectItem = useCallback((target: T) => {
-    let updated: Array<T> = [];
-    const { id, value } = target as IGenericItem;
+  const onSelectItem = useCallback((target: ComplexityItem) => {
+    let updated: Array<ComplexityItem> = [];
+    const { id, value } = target;
     const exists = selectedItems.includes(target);
     const allIsInList = selectedItems.find((i) => i.id === 'all');
 
@@ -63,7 +58,7 @@ const SelectDropdown = <T,>({
 
     setSelectedItems(updated);
     onChange(target);
-  }, [selectedItems, onChange]);
+  }, [selectedItems, onChange, items]);
 
   return (
     <Container>
@@ -81,7 +76,7 @@ const SelectDropdown = <T,>({
         <ListContainer>
           <List>
             {items.map((item) => {
-              const { id, value } = item as IGenericItem;
+              const { id, value } = item;
               const selected = selectedItems.includes(item);
 
               return (

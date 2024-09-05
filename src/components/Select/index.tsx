@@ -1,34 +1,29 @@
-import { memo, useMemo, useState, useCallback, PropsWithoutRef } from 'react';
+import { memo, useMemo, useState, useCallback } from 'react';
 import { ChevronDown, ChevronUp } from 'react-feather';
 
 import { Item, List, Header, Container, ActionButton, ListContainer } from './styles';
 
-interface ISelectProps<T> {
-  items: Array<T>;
+interface ISelectProps {
+  items: Array<TemporalItem>;
 
   placeholder?: string;
   borderColorIndicator: string;
 
-  onChange: (value: T) => void;
+  onChange: (value: TemporalItem) => void;
 }
 
-interface IGenericItem {
-  id: string;
-  value: string;
-}
-
-const Select = <T,>({
+const Select: React.FC<ISelectProps> = ({
   items,
   onChange,
   borderColorIndicator,
   placeholder = 'Select...',
-}: PropsWithoutRef<ISelectProps<T>>) => {
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [selectedItem, setSelectedItem] = useState<T | undefined>();
+  const [selectedItem, setSelectedItem] = useState<TemporalItem | undefined>();
   const icon = useMemo(() => isOpen ? <ChevronUp /> : <ChevronDown />, [isOpen]);
 
-  const onSelectItem = useCallback((target: T) => {
+  const onSelectItem = useCallback((target: TemporalItem) => {
     setSelectedItem(target);
     onChange(target);
     setIsOpen(false);
@@ -50,7 +45,7 @@ const Select = <T,>({
         <ListContainer>
           <List>
             {items.map((item) => {
-              const { id, value } = item as IGenericItem;
+              const { id, value } = item;
               const selected = selectedItem?.id === id || false;
 
               return (
