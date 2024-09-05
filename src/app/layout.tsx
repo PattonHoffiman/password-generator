@@ -3,8 +3,8 @@ import { Roboto_Slab } from 'next/font/google';
 import StyledComponentsRegistry from './registry';
 
 export const metadata = {
-  title: 'Desafio TOTVS',
-  description: 'Desafio TOTVS',
+  title: 'Password Generator',
+  description: 'Password Generator',
 }
 
 const robotoSlab = Roboto_Slab({
