@@ -6,7 +6,7 @@ import cryptoJS from 'crypto-js';
 import Button from '@/components/Button';
 
 import verifyPassword from '@/api/password/verify';
-import { InfoContainer, InfoRow, Container, Content, Label } from './styles';
+import { InfoContainer, InfoRow, Container, Content, Label } from '../../templates/index';
 
 export default function ShowPassword() {
   const router = useRouter();

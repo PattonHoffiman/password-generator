@@ -1,5 +1,23 @@
 import styled, { css } from 'styled-components';
 
+interface ILabelProps {
+  color?: string;
+  error?: boolean;
+  margin?: string;
+}
+
+interface IWrapper {
+  margin?: string;
+}
+
+export const Content = styled.div`
+  padding: 3rem;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Container = styled.div`
   width: 100%;
   height: 99vh;
@@ -13,9 +31,16 @@ export const Container = styled.div`
   font-family: var(--font-roboto-slab), monospace;
 `;
 
-interface IWrapper {
-  margin?: string;
-}
+export const ErrorContainer = styled.div`
+  width: 100%;
+  max-width: 30rem;
+  padding-top: 6rem;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+`;
 
 export const Wrapper = styled.div<IWrapper>`
   width: 30rem;
@@ -24,15 +49,22 @@ export const Wrapper = styled.div<IWrapper>`
   margin: ${({ margin }) => margin || ''};
 `;
 
-interface ILabelProps {
-  error?: boolean;
-  color?: string;
-}
-
 export const Label = styled.label<ILabelProps>`
-  font-size: 1rem;
+  color: #2e3440;
   font-weight: 500;
-  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+  margin: ${({ margin }) => margin || '0 0 0.25rem'};
+
+  &.last {
+    color: #d08770;
+    font-weight: 700;
+  }
+
+  &.error {
+    color: #bf616a;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
 
   &.title {
     color: #2e3440;
@@ -67,13 +99,13 @@ export const Label = styled.label<ILabelProps>`
     `};
 `;
 
-export const ErrorContainer = styled.div`
-  width: 100%;
-  max-width: 30rem;
-  padding-top: 6rem;
-
+export const InfoContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+`;
+
+export const InfoRow = styled.div`
+  display: flex;
   flex-direction: row;
-  justify-content: center;
+  align-items: center;
 `;

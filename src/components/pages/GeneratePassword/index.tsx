@@ -12,9 +12,7 @@ import Button from '@/components/Button';
 import Select from '@/components/Select';
 import Checkbox from '@/components/Checkbox';
 import SelectDropdown from '@/components/SelectDropdown';
-
-import options from './options';
-import { Label, Wrapper, Container, ErrorContainer } from './styles';
+import { ErrorContainer, Container, Wrapper, Label } from '../../templates/index';
 
 export default function GeneratePassword() {
   const [canStore, setCanStore] = useState(false);
@@ -47,6 +45,20 @@ export default function GeneratePassword() {
   const [debouncedPassword] = useDebounce(password, 1000);
 
   type Status = 'weak' | 'strong' | 'weakest' | 'moderate' | 'strongest' | 'none';
+
+  const complexityList: Array<ComplexityItem> = [
+    { id: 'all', value: 'All' },
+    { id: 'numeric', value: 'Digits' },
+    { id: 'special', value: 'Special Chars' },
+    { id: 'lower', value: 'Lower Case Chars' },
+    { id: 'upper', value: 'Upper Case Chars' },
+  ];
+  
+  const temporalList: Array<TemporalItem> = [
+    { id: 'minute', value: 'Minute(s)' },
+    { id: 'hour', value: 'Hour(s)' },
+    { id: 'day', value: 'Day(s)' },
+  ];
 
   // * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -331,8 +343,8 @@ export default function GeneratePassword() {
         {generate && (
           <Wrapper>
             <SelectDropdown
+              items={complexityList}
               onChange={onChangeComplexity}
-              items={options.complexityList}
               placeholder="Select complexity types..."
               borderColorIndicator={onChangeBorderColor(randomPassword !== '', complexityError !== '')}
             />
@@ -368,8 +380,8 @@ export default function GeneratePassword() {
         {canStore && (
           <Wrapper margin="2rem 0 0">
             <Select
+              items={temporalList}
               onChange={onChangeTemporal}
-              items={options.temporalList}
               placeholder="Select period..."
               borderColorIndicator={onChangeBorderColor(!!selectedTemporal, storeError !== '')}
             />

@@ -1,11 +1,11 @@
 'use client'
 
-import GeneratePassword from "@/pages/GeneratePassword";
+import GeneratePassword from "@/components/pages/GeneratePassword";
 
-export default function Page() {
-  return (
-    <main>
-      <GeneratePassword />
-    </main>
-  );
-}
+const MyGeneratePasswordPage: React.FC = () => (
+  <main>
+    <GeneratePassword />
+  </main>
+);
+
+export default MyGeneratePasswordPage;
