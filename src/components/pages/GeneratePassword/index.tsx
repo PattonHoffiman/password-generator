@@ -414,7 +414,7 @@ export default function GeneratePassword() {
             />
 
             {url !== '' && (
-              <Wrapper margin="2rem 0 0">
+              <Wrapper margin="2rem auto 0">
                 <Label className="message">
                   Password Created!
                 </Label>
