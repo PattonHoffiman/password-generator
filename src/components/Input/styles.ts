@@ -4,7 +4,9 @@ export const Container = styled.div`
   font-family: var(--font-roboto-slab), monospace;
 
   width: 100%;
-  max-width: 30rem;
+  max-width: 20rem;
+
+  margin: 0 auto;
   margin-bottom: 0.5rem;
 
   display: flex;
@@ -46,6 +48,7 @@ export const EyeButton = styled.button`
 export const InnerInput = styled.input`
   width: 100%;
   border: none;
+
   min-height: 1.875rem;
   padding-left: 0.5rem;
 

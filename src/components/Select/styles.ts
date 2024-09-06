@@ -4,10 +4,12 @@ export const Container = styled.div`
   font-family: var(--font-roboto-slab), monospace;
 
   width: 100%;
-  max-width: 30rem;
+  max-width: 20rem;
 
   font-weight: 400;
   font-size: 1.3rem;
+
+  margin: 0 auto;
   margin-bottom: 0.5rem;
 
   display: flex;

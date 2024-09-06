@@ -3,9 +3,7 @@
 import GeneratePassword from "@/components/pages/GeneratePassword";
 
 const MyGeneratePasswordPage: React.FC = () => (
-  <main>
-    <GeneratePassword />
-  </main>
+  <GeneratePassword />
 );
 
 export default MyGeneratePasswordPage;

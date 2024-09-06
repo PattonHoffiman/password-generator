@@ -6,7 +6,7 @@ interface IContainerProps {
 
 export const Container = styled.div<IContainerProps>`
   width: fit-content;
-  margin: ${({ margin }) => margin || ''};
+  margin: ${({ margin }) => margin || '0 auto'};
 
   > label {
     display: flex;

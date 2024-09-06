@@ -4,9 +4,7 @@ import ShowPassword from '@/components/pages/ShowPassword';
 
 const Page: React.FC = () => {
   return (
-    <main>
-      <ShowPassword />
-    </main>
+    <ShowPassword />
   );
 };
 

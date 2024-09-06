@@ -7,11 +7,10 @@ interface IButtonProps {
 
 export const Container = styled.button<IButtonProps>`
   width: 100%;
-  max-width: 30rem;
+  max-width: 15rem;
   min-height: 1.875rem;
   
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem auto;
 
   opacity: 0.7;
   border: none;

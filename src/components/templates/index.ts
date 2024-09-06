@@ -18,28 +18,31 @@ export const Content = styled.div`
   justify-content: center;
 `;
 
-export const Container = styled.div`
-  width: 100%;
-  height: 99vh;
-  background-color: #eceff4;
+export const Container = styled.div`  
+  flex: 1;
 
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
+  
   font-family: var(--font-roboto-slab), monospace;
 `;
 
 export const ErrorContainer = styled.div`
   width: 100%;
-  max-width: 30rem;
+  margin: 0 auto;
+  max-width: 20rem;
   padding-top: 6rem;
 
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: center;
+
+  > label {
+    font-size: 1rem;
+  }
 `;
 
 export const Wrapper = styled.div<IWrapper>`
@@ -82,7 +85,8 @@ export const Label = styled.label<ILabelProps>`
   &.status {
     font-weight: 400;
     font-size: 0.8rem;
-    margin-left: 0.25rem;
+    margin-right: auto;
+    margin-left: 5.25rem;
 
     > span {
       font-weight: 700;
