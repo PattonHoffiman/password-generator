@@ -419,9 +419,11 @@ export default function GeneratePassword() {
                   Password Created!
                 </Label>
 
-                <Link href={url}>
-                  {url}
-                </Link>
+                <Wrapper margin="1rem 2rem">
+                  <Link href={url}>
+                    {url}
+                  </Link>
+                </Wrapper>
               </Wrapper>
             )}
           </Wrapper>

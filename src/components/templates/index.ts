@@ -46,10 +46,11 @@ export const ErrorContainer = styled.div`
 `;
 
 export const Wrapper = styled.div<IWrapper>`
-  width: 100%;
+  flex: 1;
 
   display: flex;
   flex-direction: column;
+  
   margin: ${({ margin }) => margin || ''};
 `;
 
