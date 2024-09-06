@@ -46,7 +46,8 @@ export const ErrorContainer = styled.div`
 `;
 
 export const Wrapper = styled.div<IWrapper>`
-  width: 30rem;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   margin: ${({ margin }) => margin || ''};
@@ -54,8 +55,8 @@ export const Wrapper = styled.div<IWrapper>`
 
 export const Label = styled.label<ILabelProps>`
   color: #2e3440;
+  font-size: 1rem;
   font-weight: 500;
-  font-size: 1.5rem;
   margin: ${({ margin }) => margin || '0 0 0.25rem'};
 
   &.last {
