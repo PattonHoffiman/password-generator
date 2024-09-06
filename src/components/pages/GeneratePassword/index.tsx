@@ -80,10 +80,15 @@ export default function GeneratePassword() {
         errorMessage: 'Choose between 1 and 60 days',
         rule: (value: number) => value >= 1 && value <= 60
       };
-    if (selectedTemporal?.id === 'hour' || selectedTemporal?.id === 'minute')
+    if (selectedTemporal?.id === 'hour')
+      return {
+        rule: (value: number) => value >= 1 && value <= 24,
+        errorMessage: `Choose between 1 and 23 hours`
+      };
+    if (selectedTemporal?.id === 'minute')
       return {
         rule: (value: number) => value >= 1 && value <= 59,
-        errorMessage: `Choose between 1 and 59 ${selectedTemporal.id}s`
+        errorMessage: `Choose between 1 and 59 minutes`
       };
     
     return undefined;
